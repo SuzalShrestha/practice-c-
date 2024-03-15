@@ -24,3 +24,14 @@ int main()
     cout << "End" << endl;
     return 0;
 }
+/*
+Notes
+to catch all exception
+catch(...){
+    code
+}
+to catch specific data type
+catch (int or char or double){
+    code
+}
+*/
