@@ -27,7 +27,7 @@ public:
 int main()
 {
     space s1;
-    s1.getS(100, 223, 344);
+    s1.getS(1000, 10000, 100000);
     s1.display();
     --s1;
     s1.display();
