@@ -29,14 +29,14 @@ int main()
     Employee e[10];
     fstream file;
     file.open("Employee.dat", ios::out | ios::in);
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 10; i++)
     {
         cout << "Input: " << endl;
         e[i].getData();
         file.write((char *)&e[i], sizeof(e[i]));
     }
     file.seekg(0);
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 10; i++)
     {
         cout << "Output: " << endl;
         file.read((char *)&e[i], sizeof(e[i]));
