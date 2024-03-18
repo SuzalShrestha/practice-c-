@@ -1,68 +1,43 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-
-class Student
-{
-protected:
-    int roll;
-    int marks1, marks2;
-
-public:
-    void read()
-    {
-        cout << "Enter roll number: ";
-        cin >> roll;
-        cout << "Enter marks of 2 subjects: ";
-        cin >> marks1 >> marks2;
+class Student{
+    protected:
+    float roll;
+    public:
+    void getRoll(float r){
+        roll = r;
     }
-    void display()
-    {
-        cout << "Roll number: " << roll << endl;
-        cout << "Marks: ";
-        cout << marks1 << " " << marks2;
-        cout << endl;
+    void putRoll(){
+        cout<<"Roll: "<<roll<<endl;
     }
 };
-class Test : public Student
-{
-protected:
-    int marks1;
-    int marks2;
-
-public:
-    void read()
-    {
-        // Student::read();
-        cout << "Enter marks of 2 subjects: ";
-        cin >> marks1 >> marks2;
+class Test:public Student{
+    protected:
+    float sub1, sub2;
+    public:
+    void getMarks(float m1,float m2){
+        sub1 = m1;
+        sub2 = m2;
     }
-    void display()
-    {
-        // Student::display();
-        cout << "Marks: " << marks1 << " " << marks2 << endl;
+    void putMarks(){
+        cout<<"Marks in Subject 1: "<<sub1<<endl;
+        cout<<"Marks in Subject 2: "<<sub2<<endl;
     }
 };
-class Result : public Test
-{
-protected:
-    int marks1;
-    int marks2;
-    int total;
-
-public:
-    Result(int roll) : Student(roll)
-    {
-    }
-    void display()
-    {
-        total = marks1 + marks2;
-        cout << "Total marks: " << total << endl;
+class Result:public Test{
+    float total;
+    public:
+    void display(){
+        total=((sub1+sub2)/200)*100;
+        putRoll();
+        putMarks();
+        cout<<"Total percentage : "<<total<<endl;
     }
 };
-int main()
-{
-    Result r(2);
-    r.read();
+int main(){
+    Result r;
+    r.getRoll(100);
+    r.getMarks(90,100);
     r.display();
     return 0;
 }
